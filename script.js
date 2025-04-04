@@ -16,24 +16,24 @@ function addToStorage(sender, text) {
   localStorage.setItem("chatHistory", JSON.stringify(chatHistory)); //saves the chat to localStorage
 }
 
-function renderNewMessage() {
+function renderNewMessage() { //function that called when there's a new message.
   //sender will be the user.
-  chatbox.innerHTML = ``; //deletes the text
-  chatHistory.forEach((message) => {
-    chatbox.innerHTML += `<p>${message.sender}: ${message.text}</p>`;
+  chatbox.innerHTML = ``; //deletes the text from the DOM (chatbox)
+  chatHistory.forEach((message) => { //a forEach loop that ensures all messages stored in the history are displayed on the DOM.
+    chatbox.innerHTML += `<p>${message.sender}: ${message.text}</p>`; //adds a new message or line in history
   });
 }
 
-async function fetchApiKey() {
-  const config = {
+async function fetchApiKey() { //returns a promise to fetch the data
+  const config = { //specifies the request(s) below
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: "1234567" }),
+    body: JSON.stringify({ message: "1234567" }), //changes the secret message to a string
   };
-  try {
+  try { //try/catch block, error handling
     const res = await fetch(
       "https://proxy-key-eb0j.onrender.com/get-key",
-      config
+      config //url being called by fetch to get the key securely
     );
     if (res.status != 200) {
       throw new Error("Could not get key");
@@ -85,7 +85,7 @@ async function sendMessageToGemini(userMessage) {
     };
     const url =
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
-    const res = await fetch(url + key, config);
+    const res = await fetch(url + key, config); //waiting for the request
     if (res.status != 200) {
       throw new Error("Could not talk to Gemini for some reason");
     }
@@ -100,13 +100,13 @@ async function sendMessageToGemini(userMessage) {
 
 // sendMessageToGemini("Hello, are you awake?"); //start talking to the robot
 
-SndBtn.addEventListener("click", () => {
-  const message = userInput.value.trim();
+SndBtn.addEventListener("click", () => { //triggers the event listener for the button on the DOM with the chatbox
+  const message = userInput.value.trim(); //user input field for chatbot. Trim removes excess spaces before or after a message.
   console.log(message);
-  if (message) {
-    addToStorage("user", message);
+  if (message) { //checks if there's a message, if not the "if" statement won't run.
+    addToStorage("user", message); //if the message is true, then it will send to localStorage
     renderNewMessage("user", message);
     userInput.value = "";
-    sendMessageToGemini(message);
+    sendMessageToGemini(message); //sends the user messages to Gemini
   }
 });

@@ -7,35 +7,100 @@
     <title>Revive Louisiana Volunteer Project</title>
   </head>
   <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-red-800 text-white p-6 text-center">
-      <h1 class="text-4xl font-semibold">Revive Louisiana Volunteer Project</h1>
+    <!-- Header: use sticky to keep header at top. Problem: when it gets to each section, it's covering the sections. May have to do classic CSS -->
+    <header
+      class="flex flex-col sm:flex-row justify-between items-center py-4 px-6 bg-red-800 text-white"
+    >
+      <a href="#" class="flex items-center mb-4 sm:mb-0">
+        <img src="images/revive louisiana logo.png" alt="logo" class="h-30" />
+      </a>
+      <h1 class="text-4xl font-semibold text-center sm:text-left">
+        Revive Louisiana Volunteer Project
+      </h1>
+
+      <nav class="flex mt-4 sm:mt-0">
+        <ul class="flex justify-center sm:justify-end gap-4 sm:gap-2">
+          <li><a href="#mission" class="border-b">Our Mission</a></li>
+          <li><a href="#aboutRevive" class="border-b">About Us</a></li>
+          <li><a href="#revy" class="border-b">Ask Revy, AI Assistant</a></li>
+          <li><a href="#contact" class="border-b">Contact Us</a></li>
+        </ul>
+      </nav>
     </header>
+
     <!-- Hero Section -->
     <section
       class="hero bg-contain bg-center h-screen"
-      style="background-image: url('images/revive hero.jpg')"
+      style="background-image: url('images/revive hero.jpg')" aria-label="Hero section: Disaster recovery and economic hardship support for Louisiana"
     >
-      <div class="relative isolate overflow-hidden bg-white py-5 sm:py-15 md:"> 
-        <!-- stacking -->
-        <p class="text-5xl sm:text-9xl text-center">
+    <!-- Describes the background picture -->
+    <!-- I think the issue is the overflow too -->
+      <div class="relative isolate overflow-hidden bg-white py-10 px-16">
+        <p class="text-4xl sm:text-5xl lg:text-8xl text-center">
           Disaster recovery and economic hardship support for Louisiana
         </p>
       </div>
     </section>
 
     <!-- Main content -->
-    <main class="container mx-auto p-4">
-      <section class="my-8 text-center">
-        <h2 class="text-2xl font-semibold">Our Mission</h2>
-        <p class="mt-4">
-          We work to support communities in Louisiana recovering from natural
-          disasters and economic hardship. Join us in making a difference.
+    <main class="container mx-auto p-4" aria-labelledby="main-content">
+      <section id="mission" class="mt-15 text-center">
+        <h2 id="main-content" class="text-2xl font-bold text-center shadow-md">Our Mission</h2>
+        <!-- I think I'm linking the section to the description with this aria -->
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-center">
+          <img
+            src="images/chandler-cruttenden-ibSl9KNn1lQ-unsplash.jpg"
+            alt="Disaster Recovery"
+            class="w-1/4 h-auto mr-4 rounded-lg shadow-xl"
+          />
+
+          <div>
+            <p class="text-left text-xl">
+              Our mission is to provide vital support to communities across
+              Louisiana as they navigate the challenges of recovering from
+              natural disasters and economic hardship. Through collaborative
+              efforts, resource-sharing, and unwavering dedication, we strive to
+              foster resilience, rebuild lives, and create a brighter future for
+              all. Join us in making a meaningful and lasting impact as we work
+              together to strengthen our communities and bring hope to those in
+              need.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About us section -->
+      <section id="aboutRevive" class="mt-15 bg-red-800 text-center">
+        <h2 class="text-2xl text-gray-50 font-bold shadow-md">About Revive</h2>
+        <p class="text-gray-50 text-xl p-5">
+          The Revive Louisiana Volunteer Project is dedicated to helping
+          communities across the state of Louisiana recover from the devastation
+          caused by natural disasters. ReviveLA, as it is affectionally known,
+          was birthed out of tragedy, and resilience, during the 2016 Great
+          Flood that affected most of Louisiana. Based in Baton Rouge, LA, our
+          organization provides support to residents affected by hurricanes,
+          flooding, tornadoes, and other catastrophic events. Though we are
+          located in Baton Rouge, we deploy volunteers across all affected
+          parishes during times of crisis, working tirelessly to rebuild,
+          restore, and provide essential resources.
+        </p>
+        <div class="flex items-center justify-center">
+          <img
+            src="images/revive hero2.jpg"
+            alt="Volunteering flex items-center justify-center shadow-black-900/15"
+          />
+        </div>
+        <p class="text-gray-50 text-xl p-5">
+          Our mission is driven by the collective efforts of passionate
+          individuals who come together to support their neighbors. We welcome
+          those who want to make a difference, whether it’s through volunteering
+          or donating resources. To get involved, simply reach out via email at
+          or visit our Facebook page for updates and volunteer opportunities.
         </p>
       </section>
 
       <!-- AI Chat Interface -->
-      <section class="mt-8 p-4 bg-white shadow-md rounded-lg">
+      <section id="revy" class="mt-15 p-4 bg-white shadow-md rounded-lg">
         <h2 class="text-xl font-semibold text-center">
           Chat with Revy, our AI Assistant
         </h2>
@@ -55,10 +120,113 @@
           class="w-full p-2 border rounded-md"
         /><button
           id="send-btn"
-          class="ml-2 p-2 bg-blue-600 text-white rounded-md"
+          class="ml-2 mt-2 p-2 bg-blue-600 text-white rounded-md"
         >
           Send
         </button>
+      </section>
+
+      <!-- contact section -->
+      <section id="contact" class="mt-15 bg-red-800 text-center">
+        <h2 class="text-2xl text-gray-50 font-bold shadow-md">Contact Us</h2>
+        <p class="text-gray-50 text-xl p-5">
+          We work to support communities in Louisiana recovering from natural
+          disasters and economic hardship. To learn more, or to get involved,
+          reach out via email at revivelouisiana504@gmail.com, visit our
+          <a href="https://www.facebook.com/HelpingHandsReviveLA">
+            <button
+              button
+              type="submit"
+              class="bg-blue-500 text-white py-0 px-4 rounded-lg hover:bg-blue-600"
+            >
+              Facebook
+            </button></a
+          >
+          page for updates and volunteer opportunities, or submit your questions
+          on the form below.
+        </p>
+        <p class="text-gray-50 text-xl p-5">
+          We operate Monday through Thursday from 9am to 4:30pm and on Fridays
+          from 10am to 2pm.
+        </p>
+        <p class="text-gray-50 text-xl p-5">
+          Join us in helping our communities rise above challenges and create a
+          brighter future for all.
+        </p>
+
+        <!-- contact form starts -->
+        <div class="flex justify-center items-center">
+          <div class="bg-white p-8 mb-6 rounded-lg shadow-lg w-full sm:max-w-md">
+            <!--  w-full: sets the width of the div to 100% of its parent container.
+        max-w-md: ensures that it doesn't stretch too wide on larger screens -->
+
+            <form action="#" method="POST" class="mt-4">
+              <!-- Name -->
+              <div class="mb-4">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700"
+                  >Full Name</label
+                > 
+                <!-- block makes the label element take up full width on the container and make a new line -->
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                  required
+                  aria-label="Enter your full name"
+                />
+                <!-- Added to each input field to label the input for screen readers. -->
+              </div>
+
+              <!-- Email -->
+              <div class="mb-4">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                  required
+                  aria-label="Enter your email address"
+                />
+              </div>
+
+              <!-- Message -->
+              <div class="mb-4">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="flex justify-center">
+                <a href="mailto:example@example.com"
+                  ><button
+                    type="submit"
+                    class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                  >
+                    Submit
+                  </button></a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -70,6 +238,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="localStorage.js"></script>
   </body>
 </html>
